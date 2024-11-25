@@ -4,6 +4,7 @@ import GridComponent from "./GridComponent";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import Filters from "./Filters";
+import Videoplayer from "./Videoplayer";
 
 function Header() {
   const movies = useSelector((state) => state.movies.movies);
@@ -30,12 +31,12 @@ function Header() {
     content = movies.filter((movie) => movie.watchlist === 0);
   }
 
-  if (selectGenreOption != "" && selectGenreOption != "All") {
+  if (selectGenreOption !== "" && selectGenreOption !== "All") {
     content = content.filter(
       (movie) => movie.genre === selectGenreOption.toLowerCase()
     );
   }
-  if (selectRatingOption != "" && selectRatingOption != "All") {
+  if (selectRatingOption !== "" && selectRatingOption !== "All") {
     let ratings = selectRatingOption.split("-");
     console.log(ratings);
     content = content.filter(
@@ -46,7 +47,7 @@ function Header() {
   function hanldesearch(searchtext) {
     setSearchText(searchtext);
   }
-  if (searchText != "") {
+  if (searchText !== "") {
     console.log(searchText);
     content = content.filter((movie) =>
       movie.title.toLowerCase().includes(searchText.toLowerCase())
@@ -78,7 +79,7 @@ function Header() {
           options={ratings}
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-4">
         <Navbar setlist={setListype} />
         <GridComponent movies={content} />
       </div>
