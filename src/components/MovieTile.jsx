@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { UpdateMovie } from "../Slices/MoviesSlice";
 
@@ -13,15 +14,19 @@ function MovieTile({ movie }) {
       })
     );
   }
+
   return (
-    <div className="flex flex-col group relative duration-500 max-w-48 h-[110%] overflow-hidden hover:scale-110 gap-2 mb-10">
+    <Link
+      className="flex flex-col group relative duration-500 max-w-48 h-[110%] overflow-hidden hover:scale-110 gap-2 mb-10"
+      to="/video"
+    >
       <img src={`/images/${movie.image}`} className="transition-transform" />
       <div className="absolute mt-2 flex flex-col opacity-0 group-hover:opacity-100 transition duration-500 justify-center items-center">
         <button
           className="bg-blue-500 rounded-md text-white px-4 text-sm py-1 hover:bg-blue-400"
           onClick={handlewatchList}
         >
-          {movie.watchlist == 0
+          {movie.watchlist === 0
             ? "Add to watch list"
             : "Remove from watch list"}
         </button>
@@ -31,7 +36,7 @@ function MovieTile({ movie }) {
           <p>Ratinmg: {movie.rating}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
