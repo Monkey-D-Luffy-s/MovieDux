@@ -18,7 +18,8 @@ function MovieTile({ movie }) {
   return (
     <Link
       className="flex flex-col group relative duration-500 max-w-48 h-[110%] overflow-hidden hover:scale-110 gap-2 mb-10"
-      to="/video"
+      to={{ pathname: "/video" }}
+      state={{ image: movie.image }}
     >
       <img src={`/images/${movie.image}`} className="transition-transform" />
       <div className="absolute mt-2 flex flex-col opacity-0 group-hover:opacity-100 transition duration-500 justify-center items-center">
