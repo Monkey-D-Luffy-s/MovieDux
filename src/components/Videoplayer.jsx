@@ -28,7 +28,7 @@ function Videoplayer({ title }) {
       <video
         ref={videoRef}
         poster={`./images/${image}`}
-        className="w-full max-w-2xl rounded-md shadow-md"
+        className="w-full max-w-xl rounded-md shadow-md"
         src={src}
         onClick={handlePlay}
         controls={false}
