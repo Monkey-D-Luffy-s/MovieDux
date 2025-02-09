@@ -5,6 +5,9 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import Filters from "./Filters";
 import Videoplayer from "./Videoplayer";
+import Employees from "./Employees";
+
+var list = ["movieList", "WatchList", "Employees"];
 
 function Header() {
   const movies = useSelector((state) => state.movies.movies);
@@ -56,11 +59,6 @@ function Header() {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center my-4">
-        <h1 className="text-6xl font-bold italic text-transparent bg-gradient-to-r from-blue-500 via-red-500 to-pink-500 bg-clip-text animation-glow">
-          MovieDux
-        </h1>
-      </div>
       <input
         className="px-6 py-1 rounded-2xl bg-gray-600 w-auto text-white flex justify-center outline-none hover:outline-orange-500 m-3"
         onChange={(e) => hanldesearch(e.target.value)}
@@ -80,7 +78,6 @@ function Header() {
         />
       </div>
       <div className="flex flex-col gap-4">
-        <Navbar setlist={setListype} />
         <GridComponent movies={content} />
       </div>
     </>
