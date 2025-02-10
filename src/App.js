@@ -1,7 +1,6 @@
 import Header from "./components/Header";
 import "./App.css";
 import Footer from "./components/Footer";
-import GridComponent from "./components/GridComponent";
 
 function App() {
   return (

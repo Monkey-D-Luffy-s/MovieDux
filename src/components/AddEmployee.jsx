@@ -107,8 +107,8 @@ function AddEmployee() {
       </form>
       {isLoading && (
         <div>
-          <div class="flex justify-center items-center min-h-screen">
-            <div class="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
+          <div className="flex justify-center items-center min-h-screen">
+            <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
           </div>
         </div>
       )}

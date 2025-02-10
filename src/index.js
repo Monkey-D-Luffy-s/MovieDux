@@ -10,6 +10,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootNavigation from "./components/RootNavigation";
 import GridComponent from "./components/GridComponent";
 import Employees from "./components/Employees";
+import Videoplayer from "./components/Videoplayer";
+import EData from "./components/EData";
+import { fetchEmps } from "./components/Employees";
 
 const routes = createBrowserRouter([
   {
@@ -18,7 +21,16 @@ const routes = createBrowserRouter([
     children: [
       { index: true, element: <Header /> },
       { path: "/movies", element: <GridComponent /> },
-      { path: "/employees", element: <Employees /> },
+      { path: "/employees", element: <Employees />, loader: fetchEmps },
+      { path: "/video/:image", element: <Videoplayer /> },
+      {
+        path: "/edata",
+        element: <EData />,
+        loader: async () => {
+          const response = await fetch(`https://localhost:7175/List`);
+          return await response.json();
+        },
+      },
     ],
   },
 ]);
