@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useRef } from "react";
 import src from "../Assets/Manoj.mp4";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 import { faPlay, faPause, faExpand } from "@fortawesome/free-solid-svg-icons";
 
-function Videoplayer({ title }) {
+function Videoplayer() {
+  const { image } = useParams();
   const location = useLocation();
-  const { image } = location.state || "./images/5.jpg";
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef(null);
   const handlePlay = () => {
@@ -21,14 +21,14 @@ function Videoplayer({ title }) {
   };
   const handleFullscreen = () =>
     videoRef.current.requestFullscreen && videoRef.current.requestFullscreen();
-
+  console.log(`./images/${image}`);
   return (
     <div className="flex flex-col items-center bg-gray-800 p-4 rounded-lg shadow-lg">
-      <h1 className="text-lg font-semibold text-white mb-4">{title}</h1>
+      <h1 className="text-lg font-semibold text-white mb-4">Movie</h1>
       <video
         ref={videoRef}
         poster={`./images/${image}`}
-        className="w-full max-w-xl rounded-md shadow-md"
+        className="w-full max-w-xl rounded-md shadow-md h-52 outline-none"
         src={src}
         onClick={handlePlay}
         controls={false}

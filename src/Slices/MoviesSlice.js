@@ -14,6 +14,9 @@ const moviesSlice = createSlice({
         state.movies[movieindex] = { ...state.movies[movieindex], ...movie };
       }
     },
+    FindMovie: (state, payload) => {
+      const movie = state.movies.find((movie) => movie.image == payload.image);
+    },
   },
 });
 

@@ -77,6 +77,13 @@ export const NavbarSimple = ({ setIsOpen, isOpen }) => {
           >
             Employees
           </Link>
+          <Link
+            to="/edata"
+            className="block py-2 px-4 text-white hover:text-gray-200 
+                                   md:inline-block hover:bg-zinc-700"
+          >
+            EData
+          </Link>
         </div>
       </div>
     </nav>
